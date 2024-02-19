@@ -49,7 +49,7 @@
     color: #ffffff;
   }
   
-  .main-content {
+  .maincontent {
     width: 80%;
     margin: auto auto 100px auto;
   }
@@ -64,7 +64,7 @@
     margin-bottom: 50px;
   }
   
-  .book-list {
+  .booklist {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -76,11 +76,11 @@
     width: 288px;
     overflow: hidden;
   
-    .book-title {
+    .booktitle {
       font-weight: bold;
     }
   
-    .book-details {
+    .bookdetails {
       margin-bottom: 1rem;
   
       & > div {
@@ -89,14 +89,14 @@
     }
   }
   
-  .main-form {
+  .mainform {
     color: #222222;
     font-size: 18px;
     width: 70%;
     margin: auto;
   }
   
-  .input-control {
+  .inputcontrol {
     border: 1px solid #ccc;
     color: #555555;
     background-color: #fff;
@@ -121,7 +121,7 @@
     margin-right: 5px;
   }
   
-  .submit-btn {
+  .submitbtn {
     margin-top: 1rem;
   }
   
@@ -136,19 +136,19 @@
     }
   }
   
-  .errorMsg {
+  .errormsg {
     color: #f21e08;
     background: #fff0f0;
     padding: 10px;
   }
   
-  .successMsg {
+  .successmsg {
     color: #00ff00;
     background: #077707;
     padding: 10px;
   }
   
-  .centered-message {
+  .centeredmessage {
     width: 500px;
     margin: auto;
   }
@@ -177,13 +177,17 @@
       }
     }
   
-    .main-form {
+    .mainform {
       width: 100%;
     }
   }
 
 
 //   background
+ * {
+--size: 50px;
+--MouseSize: 300px;
+ }
 
 body { 
 display: flex;
@@ -191,7 +195,7 @@ justify-content: center;
 align-self: center;
 min-height: 100vh;
 overflow: hidden;
-background: rgb(0, 0, 0);
+background: rgb(37, 0, 31);
 }
 
 
@@ -203,9 +207,17 @@ background: rgb(0, 0, 0);
 }
 
 #container span {
-    position: relative;
-    width: 100px;
-    height: 100px;
+
+  
+    width: 0;
+    height: 0;
+    border-left: var(--size) solid transparent;
+    border-right: var(--size)solid transparent;
+    border-bottom: 100px solid;
+  
+    // position: relative;
+    // width: var(--size);
+    // height: var(--size);
     background: #111;
     
     
@@ -214,8 +226,8 @@ background: rgb(0, 0, 0);
 
 #cursor {
     position: absolute;
-    width: 500px;
-    height: 500px;
+    width: var(--MouseSize);
+    height: var(--MouseSize);
     background: #0f0;
     transform:  translate(-50%, -50%);
     z-index: 1;
