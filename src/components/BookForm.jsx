@@ -11,7 +11,6 @@ import { Form, Button } from "react-bootstrap";
 
 // For the price switch case, we're checking for a decimal number with only two digits after the decimal point. So we've added a regular expression check that looks like this: value.match(/^\d{1,}(\.\d{0,2})?$/).
 
-
 const BookForm = ({ handelOnSubmit }) => {
   // we've defined a state as an object using the useState() hook to store all the entered details like this
 
@@ -55,22 +54,21 @@ const BookForm = ({ handelOnSubmit }) => {
         }));
     }
   };
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("HandleSubmit ")
-    // Call your handleOnSubmit function here
-    handleOnSubmit(book, e);
+    console.log("HandleSubmit ");
+    
+    handelOnSubmit(book, e);
+    
     setBook({
       bookName: "",
       author: "",
       quantity: "",
       price: "",
     });
-    // // Clear form fields
-    // document.getElementById("create-course-form").reset();J
-    // setSubmitted(true);
   };
+
 
   //   the BookForm component, we're returning a Form where we enter book name, book author, quantity, and price. Each input field has added an onChange handler which calls the handleInputChange method.
   return (
@@ -79,12 +77,11 @@ const BookForm = ({ handelOnSubmit }) => {
       <Form
         onSubmit={(e) => {
           handelOnSubmit(book, e);
-        
         }}
       >
         <Form.Group controlId="name">
           <Form.Label>Book Name</Form.Label>
-          <Form.Control    
+          <Form.Control
             className={styles.inputcontrol}
             type="text"
             name="bookName"
@@ -105,7 +102,6 @@ const BookForm = ({ handelOnSubmit }) => {
           />
         </Form.Group>
         <Form.Group controlId="quantity">
-         
           <Form.Label>Book Quantity</Form.Label>
           <Form.Control
             className={styles.inputcontrol}
@@ -127,7 +123,12 @@ const BookForm = ({ handelOnSubmit }) => {
             onChange={handleInputChange}
           />
         </Form.Group>
-        <Button onClick={handleSubmit} variant="primary" type="submit" className={styles.submitbtn}>
+        <Button
+          onClick={handleSubmit}
+          variant="primary"
+          type="submit"
+          className={styles.submitbtn}
+        >
           Submit
         </Button>
       </Form>
