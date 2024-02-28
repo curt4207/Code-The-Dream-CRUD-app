@@ -1,12 +1,31 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import AppRouter from './router/AppRouter.jsx'
-import styles from './style.module.scss';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import Home from "./Home.jsx";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+import styles from "./style.module.scss";
+import {
+  BrowserRouter,
+  createBrowserRouter,
+  RouterProvider,
+  // Route,
+  // Switch
+} from "react-router-dom";
+// import Header from "./components/Header.jsx";
+import AddBooks from "./components/AddBooks.jsx";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/add",
+    element: <AddBooks />,
+  },
+]);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-  <AppRouter/>
-    {/* <App /> */}
-  </React.StrictMode>,
-)
+    <RouterProvider router={router} />
+  </React.StrictMode>
+);

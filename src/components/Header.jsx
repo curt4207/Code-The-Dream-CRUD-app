@@ -1,21 +1,23 @@
-import React from 'react';
-import styles from '../style.module.scss';
+import React from "react";
 import { NavLink } from "react-router-dom";
+
 const Header = () => {
-    return (
-        <header>
-            <h1> Book Management app</h1>
-            <hr />
-            <div className={styles.links}>
-                <NavLink to="/" className={styles.link} activeClassName={styles.active} exact>
-                    Book List
-                </NavLink>
-                <NavLink to="/add" className={styles.link} activeClassName={styles.active} >
-                    Add Book
-                </NavLink>
-            </div>
-        </header>
-    );
-}
+  const navigation = [
+    { path: "/", name: "List Book" },
+    { path: "/add", name: "Add Book" },
+  ];
+  return (
+    <div>
+      <h1> Book Management</h1>
+      <nav style={{ display: "flex", justifyContent: "space-between" }}>
+        {navigation.map((nav) => (
+          <NavLink key={nav.name} to={nav.path}>
+            {nav.name}
+          </NavLink>
+        ))}
+      </nav>
+    </div>
+  );
+};
 
 export default Header;
