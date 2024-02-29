@@ -43,6 +43,34 @@ background-attachment: fixed;
   z-index: -1;
 }
 
+.wave:nth-last-of-type(2) {
+  bottom: -1.25em;
+  animation: wave 18s linear reverse infinite;
+  opacity: 0.8;
+}
+.wave:nth-last-of-type(3) {
+  bottom: -2.5em;
+  animation: wave 20s -1s linear reverse infinite;
+  opacity: 0.9;
+}
+
+@keyframes wave {
+  0% {
+    transform: translateX(1);
+  }
+  25% {
+    transform: translateX(-25%);
+  }
+  50% {
+    transform: translateX(-50%);
+  }
+  75% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(1);
+  }
+}
   header {
     text-align: center;
     margin: 10px 0 10px 0;
