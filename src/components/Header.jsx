@@ -1,5 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import styles from "../style.module.scss";
+
 
 const Header = () => {
   const navigation = [
@@ -9,9 +11,9 @@ const Header = () => {
   return (
     <div>
       <h1> Book Management</h1>
-      <nav style={{ display: "flex", justifyContent: "space-between" }}>
+      <nav style={{ display: "flex", justifyContent: "space-between", }}>
         {navigation.map((nav) => (
-          <NavLink key={nav.name} to={nav.path}>
+          <NavLink className={styles.navLinks} key={nav.name} to={nav.path}>
             {nav.name}
           </NavLink>
         ))}

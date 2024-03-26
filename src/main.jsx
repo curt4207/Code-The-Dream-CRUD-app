@@ -13,6 +13,9 @@ import {
 // import Header from "./components/Header.jsx";
 import AddBooks from "./components/AddBooks.jsx";
 
+import BookProvider from "./context/BookProvider";
+import BooksList from "./components/BooksList.jsx";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -22,10 +25,17 @@ const router = createBrowserRouter([
     path: "/add",
     element: <AddBooks />,
   },
+  {
+    path: "/booklist",
+    element: <BooksList />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <BookProvider>
+      <RouterProvider router={router} />
+      
+    </BookProvider>
   </React.StrictMode>
 );

@@ -71,6 +71,17 @@ background-attachment: fixed;
     transform: translateX(1);
   }
 }
+
+.navLinks {
+  color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+
+}
+.navLinks:hover {
+    scale: 1.5;
+  
+}
   header {
     text-align: center;
     margin: 10px 0 10px 0;
