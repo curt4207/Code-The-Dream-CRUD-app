@@ -2,6 +2,7 @@ import React, { useState } from "react";
 // Note that to create a unique ID we're calling the
 // uuidv4() method from the uuid npm package.
 import { v4 as uuidv4 } from "uuid";
+
 import styles from "../style.module.scss";
 import { Form, Button } from "react-bootstrap";
 
@@ -54,13 +55,29 @@ const BookForm = ({ handelOnSubmit }) => {
         }));
     }
   };
-  
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log("HandleSubmit ");
+
+  //   handelOnSubmit(book, e);
+
+  //   setBook({
+  //     bookName: "",
+  //     author: "",
+  //     quantity: "",
+  //     price: "",
+  //   });
+  // };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("HandleSubmit ");
-    
-    handelOnSubmit(book, e);
-    
+
+    // Generate a unique ID for the book
+    const bookWithId = { ...book, id: uuidv4() };
+
+    handelOnSubmit(bookWithId, e);
+
     setBook({
       bookName: "",
       author: "",
@@ -68,7 +85,6 @@ const BookForm = ({ handelOnSubmit }) => {
       price: "",
     });
   };
-
 
   //   the BookForm component, we're returning a Form where we enter book name, book author, quantity, and price. Each input field has added an onChange handler which calls the handleInputChange method.
   return (
